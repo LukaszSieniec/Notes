@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const AddNoteScreen())),
               child: const Icon(Icons.add)),
-          body: Column(children:  [
+          body: Column(children: [
             const Divider(height: 2.0, color: Colors.white),
             Notes(notes: state.notes)
           ]));

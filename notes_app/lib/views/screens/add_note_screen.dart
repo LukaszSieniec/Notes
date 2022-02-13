@@ -13,7 +13,7 @@ class AddNoteScreen extends StatefulWidget {
 }
 
 class _AddNoteScreenState extends State<AddNoteScreen> {
-  late final TextEditingController _contentController;
+  final TextEditingController _contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,11 +62,5 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
   void dispose() {
     _contentController.dispose();
     super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _contentController = TextEditingController();
   }
 }
