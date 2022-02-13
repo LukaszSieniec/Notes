@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
               create: (context) =>
                   AddNoteBloc(NotesRepository(NotesDatabase.get))),
           BlocProvider(
-              create: (context) => NotesBloc(NotesRepository(NotesDatabase.get))
+              create: (context) => NotesBloc(NotesRepository(NotesDatabase.get),
+                  BlocProvider.of<AddNoteBloc>(context))
                 ..add(const NotesLoaded()))
         ],
         child: const MaterialApp(

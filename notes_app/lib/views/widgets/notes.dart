@@ -17,7 +17,10 @@ class Notes extends StatelessWidget {
               return Card(
                   elevation: 4,
                   color: const Color(AppColors.brighterBackground),
-                  child: Center(child: Text(notes[index].content)));
+                  child: Center(
+                      child: Text(notes[index].content,
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 16.0))));
             }));
   }
 }
