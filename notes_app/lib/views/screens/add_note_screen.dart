@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/bloc/add_note/add_note_bloc.dart';
+import 'package:notes_app/bloc/add_note/add_note_event.dart';
 import 'package:notes_app/constants/app_constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AddNoteScreen extends StatelessWidget {
+class AddNoteScreen extends StatefulWidget {
   const AddNoteScreen({Key? key}) : super(key: key);
+
+  @override
+  _AddNoteScreenState createState() => _AddNoteScreenState();
+}
+
+class _AddNoteScreenState extends State<AddNoteScreen> {
+  late final TextEditingController _contentController;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +27,9 @@ class AddNoteScreen extends StatelessWidget {
             automaticallyImplyLeading: false,
             actions: [
               IconButton(
-                  onPressed: () => print('onPressed!'),
+                  onPressed: () => context
+                      .read<AddNoteBloc>()
+                      .add(SavedNote(_contentController.text)),
                   icon: const Icon(Icons.save, size: 24.0))
             ]),
         body: Column(children: [
@@ -29,9 +41,22 @@ class AddNoteScreen extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(12.0)),
                   color: Colors.white),
               child: TextFormField(
+                  controller: _contentController,
                   minLines: 3,
                   maxLines: null,
                   decoration: const InputDecoration(border: InputBorder.none)))
         ]));
+  }
+
+  @override
+  void dispose() {
+    _contentController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _contentController = TextEditingController();
   }
 }
