@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/constants/app_constants.dart';
 import 'package:notes_app/models/note.dart';
+import 'package:notes_app/views/widgets/note_item.dart';
 
 class Notes extends StatelessWidget {
   final List<Note> notes;
@@ -14,13 +14,7 @@ class Notes extends StatelessWidget {
             scrollDirection: Axis.vertical,
             itemCount: notes.length,
             itemBuilder: (context, index) {
-              return Card(
-                  elevation: 4,
-                  color: const Color(AppColors.brighterBackground),
-                  child: Center(
-                      child: Text(notes[index].content,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 16.0))));
+              return NoteItem(note: notes[index]);
             }));
   }
 }
