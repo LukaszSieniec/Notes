@@ -9,14 +9,15 @@ class Notes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        scrollDirection: Axis.vertical,
-        itemCount: notes.length,
-        itemBuilder: (context, index) {
-          return Card(
-              elevation: 4,
-              color: const Color(AppColors.brighterBackground),
-              child: Center(child: Text(notes[index].content)));
-        });
+    return Expanded(
+        child: ListView.builder(
+            scrollDirection: Axis.vertical,
+            itemCount: notes.length,
+            itemBuilder: (context, index) {
+              return Card(
+                  elevation: 4,
+                  color: const Color(AppColors.brighterBackground),
+                  child: Center(child: Text(notes[index].content)));
+            }));
   }
 }
