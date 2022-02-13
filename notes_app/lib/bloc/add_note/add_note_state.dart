@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:notes_app/models/note.dart';
 
-enum AddNoteStatus { initial, loading, success, failure }
+enum AddNoteStatus { initial, loading, success, failure, emptyContent }
 
 class AddNoteState extends Equatable {
   final Note? note;
