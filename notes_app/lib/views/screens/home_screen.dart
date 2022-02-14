@@ -32,7 +32,7 @@ class HomeScreen extends StatelessWidget {
               child: const Icon(Icons.add)),
           body: Column(children: [
             Divider(
-                height: SizeConfig.blockSizeVertical * 0.3,
+                height: SizeConfig.blockSizeVertical * 0.30,
                 color: Colors.white),
             Notes(notes: state.notes)
           ]));

@@ -50,7 +50,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
             Container(
                 margin: EdgeInsets.only(
                     left: SizeConfig.blockSizeHorizontal * 8.90,
-                    top: SizeConfig.blockSizeVertical * 4.50,
+                    top: SizeConfig.blockSizeVertical * 4.45,
                     right: SizeConfig.blockSizeHorizontal * 8.90),
                 padding: EdgeInsets.only(
                     left: SizeConfig.blockSizeHorizontal * 4.45,
