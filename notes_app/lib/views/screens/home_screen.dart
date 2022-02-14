@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/bloc/notes/notes_bloc.dart';
 import 'package:notes_app/bloc/notes/notes_state.dart';
 import 'package:notes_app/constants/app_constants.dart';
+import 'package:notes_app/utils/size_config.dart';
 import 'package:notes_app/views/screens/add_note_screen.dart';
 import 'package:notes_app/views/widgets/notes.dart';
 
@@ -11,12 +12,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return BlocBuilder<NotesBloc, NotesState>(builder: (context, state) {
       return Scaffold(
           backgroundColor: const Color(AppColors.background),
           appBar: AppBar(
-              title:
-                  const Text(AppLabels.notes, style: TextStyle(fontSize: 24.0)),
+              title: Text(AppLabels.notes,
+                  style:
+                      TextStyle(fontSize: SizeConfig.blockSizeVertical * 3.35)),
               centerTitle: true,
               backgroundColor: Colors.transparent,
               elevation: 0),
@@ -28,7 +31,9 @@ class HomeScreen extends StatelessWidget {
                       builder: (context) => const AddNoteScreen())),
               child: const Icon(Icons.add)),
           body: Column(children: [
-            const Divider(height: 2.0, color: Colors.white),
+            Divider(
+                height: SizeConfig.blockSizeVertical * 0.3,
+                color: Colors.white),
             Notes(notes: state.notes)
           ]));
     });
