@@ -5,7 +5,20 @@ import 'package:notes_app/models/note.dart';
 class NoteItem extends StatelessWidget {
   final Note note;
 
-  const NoteItem({required this.note, Key? key}) : super(key: key);
+  final double horizontalPadding;
+  final double verticalPadding;
+
+  final double contentSize;
+  final double creationDateSize;
+
+  const NoteItem(
+      {required this.note,
+      required this.horizontalPadding,
+      required this.verticalPadding,
+      required this.contentSize,
+      required this.creationDateSize,
+      Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,11 +26,14 @@ class NoteItem extends StatelessWidget {
         elevation: 4,
         color: const Color(AppColors.brighterBackground),
         child: Padding(
-            padding: const EdgeInsets.only(
-                left: 16.0, top: 8.0, right: 16.0, bottom: 8.0),
+            padding: EdgeInsets.only(
+                left: horizontalPadding,
+                top: verticalPadding,
+                right: horizontalPadding,
+                bottom: verticalPadding),
             child: Center(
                 child: Text(note.content,
-                    style: const TextStyle(
-                        color: Colors.white, fontSize: 16.0)))));
+                    style: TextStyle(
+                        color: Colors.white, fontSize: contentSize)))));
   }
 }
