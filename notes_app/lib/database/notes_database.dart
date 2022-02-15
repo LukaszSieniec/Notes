@@ -30,11 +30,6 @@ class NotesDatabase {
     await database.execute(NotesDao.createNotesTableQuery);
   }
 
-  Future<void> close() async {
-    final Database database = await _instance.database;
-    database.close();
-  }
-
   Future<void> createNote(Note note) async {
     final Database database = await _instance.database;
     database.insert(NotesDao.notesTableName, note.toJson());

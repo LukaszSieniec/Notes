@@ -6,7 +6,8 @@ class AppColors {
 
 class AppLabels {
   static const String notes = 'Notes';
-  static const String addNote = 'Add Note';
+  static const String addNote = 'Add note';
+  static const String noNotes = 'No notes';
 }
 
 class AppMessages {

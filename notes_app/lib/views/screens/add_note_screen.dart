@@ -35,7 +35,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
       if (state.addNoteStatus == AddNoteStatus.loading) {
         return _buildScaffold(buildLoading(), isVisible: false);
       } else {
-        return _buildScaffold(_buildAddNoteScreen());
+        return _buildScaffold(_buildAddNoteScreenBody());
       }
     });
   }
@@ -74,7 +74,7 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
         body: body);
   }
 
-  Widget _buildAddNoteScreen() {
+  Widget _buildAddNoteScreenBody() {
     return Container(
         margin: EdgeInsets.only(
             left: SizeConfig.blockSizeHorizontal * 8.90,
