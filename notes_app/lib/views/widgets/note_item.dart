@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:notes_app/constants/app_constants.dart';
 import 'package:notes_app/models/note.dart';
+import 'package:notes_app/utils/format.dart';
 
 class NoteItem extends StatelessWidget {
   final Note note;
@@ -27,13 +29,20 @@ class NoteItem extends StatelessWidget {
         color: const Color(AppColors.brighterBackground),
         child: Padding(
             padding: EdgeInsets.only(
-                left: horizontalPadding,
-                top: verticalPadding,
-                right: horizontalPadding,
-                bottom: verticalPadding),
+                left: horizontalPadding, right: horizontalPadding),
             child: Stack(alignment: Alignment.center, children: [
-              Text(note.myContent,
-                  style: TextStyle(color: Colors.white, fontSize: contentSize))
+              Container(
+                  padding: const EdgeInsets.only(top: 24.0, bottom: 24.0),
+                  child: Text(note.myContent,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.white, fontSize: contentSize))),
+              Positioned(
+                  right: 0,
+                  bottom: 4.0,
+                  child: Text(formatDate(note.creationDate),
+                      style: TextStyle(
+                          color: Colors.white, fontSize: creationDateSize)))
             ])));
   }
 }
