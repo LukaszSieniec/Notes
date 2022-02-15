@@ -26,7 +26,7 @@ class Notes extends StatelessWidget {
                   horizontalPadding: SizeConfig.blockSizeHorizontal * 4.45,
                   verticalPadding: SizeConfig.blockSizeVertical * 1.15,
                   contentSize: SizeConfig.blockSizeVertical * 3.35,
-                  creationDateSize: SizeConfig.blockSizeVertical * 2.25);
+                  creationDateSize: SizeConfig.blockSizeVertical * 2.40);
             }));
   }
 }

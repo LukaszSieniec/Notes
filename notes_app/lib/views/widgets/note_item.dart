@@ -42,7 +42,9 @@ class NoteItem extends StatelessWidget {
                   bottom: 2.0,
                   child: Text(formatDate(note.creationDate),
                       style: TextStyle(
-                          color: Colors.white, fontSize: creationDateSize)))
+                          color: const Color(AppColors.colorText),
+                          fontSize: creationDateSize,
+                          fontWeight: FontWeight.bold)))
             ])));
   }
 }
