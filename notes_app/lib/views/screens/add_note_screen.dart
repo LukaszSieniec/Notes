@@ -32,6 +32,11 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                   style:
                       TextStyle(fontSize: SizeConfig.blockSizeVertical * 3.35)),
               centerTitle: true,
+              flexibleSpace: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Divider(
+                      height: SizeConfig.blockSizeVertical * 0.30,
+                      color: Colors.white)),
               backgroundColor: Colors.transparent,
               elevation: 0,
               automaticallyImplyLeading: false,
@@ -43,29 +48,24 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
                     icon: Icon(Icons.save,
                         size: SizeConfig.blockSizeVertical * 4.0))
               ]),
-          body: Column(children: [
-            Divider(
-                height: SizeConfig.blockSizeVertical * 0.30,
-                color: Colors.white),
-            Container(
-                margin: EdgeInsets.only(
-                    left: SizeConfig.blockSizeHorizontal * 8.90,
-                    top: SizeConfig.blockSizeVertical * 4.45,
-                    right: SizeConfig.blockSizeHorizontal * 8.90),
-                padding: EdgeInsets.only(
-                    left: SizeConfig.blockSizeHorizontal * 4.45,
-                    right: SizeConfig.blockSizeHorizontal * 4.45),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                        Radius.circular(SizeConfig.blockSizeVertical * 2.25)),
-                    color: Colors.white),
-                child: TextFormField(
-                    controller: _contentController,
-                    minLines: 3,
-                    maxLines: null,
-                    decoration:
-                        const InputDecoration(border: InputBorder.none)))
-          ]));
+          body: Container(
+              margin: EdgeInsets.only(
+                  left: SizeConfig.blockSizeHorizontal * 8.90,
+                  top: SizeConfig.blockSizeVertical * 4.45,
+                  right: SizeConfig.blockSizeHorizontal * 8.90),
+              padding: EdgeInsets.only(
+                  left: SizeConfig.blockSizeHorizontal * 4.45,
+                  right: SizeConfig.blockSizeHorizontal * 4.45),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(SizeConfig.blockSizeVertical * 2.25)),
+                  color: Colors.white),
+              child: TextFormField(
+                  controller: _contentController,
+                  minLines: 3,
+                  maxLines: null,
+                  decoration:
+                      const InputDecoration(border: InputBorder.none))));
     });
   }
 

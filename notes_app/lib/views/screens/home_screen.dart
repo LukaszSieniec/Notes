@@ -21,6 +21,11 @@ class HomeScreen extends StatelessWidget {
                   style:
                       TextStyle(fontSize: SizeConfig.blockSizeVertical * 3.35)),
               centerTitle: true,
+              flexibleSpace: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Divider(
+                      height: SizeConfig.blockSizeVertical * 0.30,
+                      color: Colors.white)),
               backgroundColor: Colors.transparent,
               elevation: 0),
           floatingActionButton: FloatingActionButton(
@@ -30,12 +35,7 @@ class HomeScreen extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => const AddNoteScreen())),
               child: const Icon(Icons.add)),
-          body: Column(children: [
-            Divider(
-                height: SizeConfig.blockSizeVertical * 0.30,
-                color: Colors.white),
-            Notes(notes: state.notes)
-          ]));
+          body: Notes(notes: state.notes));
     });
   }
 }
