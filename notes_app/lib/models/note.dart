@@ -1,13 +1,11 @@
 import 'package:equatable/equatable.dart';
+import 'package:notes_app/utils/extensions.dart';
 
 class Note extends Equatable {
   final String content;
   final int creationDate;
 
-  get myContent => content
-      .split(RegExp(r'(?:\r?\n|\r)'))
-      .where((s) => s.trim().isNotEmpty)
-      .join('\n');
+  get myContent => content.removeEmptySpace();
 
   const Note({required this.content, required this.creationDate});
 
