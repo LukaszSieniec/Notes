@@ -4,6 +4,11 @@ class Note extends Equatable {
   final String content;
   final int creationDate;
 
+  get myContent => content
+      .split(RegExp(r'(?:\r?\n|\r)'))
+      .where((s) => s.trim().isNotEmpty)
+      .join('\n');
+
   const Note({required this.content, required this.creationDate});
 
   factory Note.fromJson(Map<String, dynamic> json) =>

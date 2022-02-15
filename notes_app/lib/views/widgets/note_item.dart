@@ -31,9 +31,9 @@ class NoteItem extends StatelessWidget {
                 top: verticalPadding,
                 right: horizontalPadding,
                 bottom: verticalPadding),
-            child: Center(
-                child: Text(note.content,
-                    style: TextStyle(
-                        color: Colors.white, fontSize: contentSize)))));
+            child: Stack(alignment: Alignment.center, children: [
+              Text(note.myContent,
+                  style: TextStyle(color: Colors.white, fontSize: contentSize))
+            ])));
   }
 }
