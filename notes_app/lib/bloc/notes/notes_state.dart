@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:notes_app/models/note.dart';
 
-enum NotesStatus { loading, success, failure }
+enum NotesStatus { initial, loading, success, failure }
 
 class NotesState extends Equatable {
   final List<Note> notes;
@@ -9,7 +9,7 @@ class NotesState extends Equatable {
   final NotesStatus notesStatus;
 
   const NotesState(
-      {this.notes = const [], this.notesStatus = NotesStatus.loading});
+      {this.notes = const [], this.notesStatus = NotesStatus.initial});
 
   NotesState copyWith({List<Note>? notes, NotesStatus? notesStatus}) =>
       NotesState(

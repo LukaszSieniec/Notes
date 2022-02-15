@@ -5,6 +5,7 @@ import 'package:notes_app/bloc/add_note/add_note_state.dart';
 import 'package:notes_app/constants/app_constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/utils/size_config.dart';
+import 'package:notes_app/views/widgets/snackbar.dart';
 
 class AddNoteScreen extends StatefulWidget {
   const AddNoteScreen({Key? key}) : super(key: key);
@@ -21,9 +22,14 @@ class _AddNoteScreenState extends State<AddNoteScreen> {
     SizeConfig.init(context);
     return BlocConsumer<AddNoteBloc, AddNoteState>(listener: (context, state) {
       if (state.addNoteStatus == AddNoteStatus.emptyContent) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(PrimarySnackBar(title: AppMessages.emptyContent));
       } else if (state.addNoteStatus == AddNoteStatus.success) {
         Navigator.pop(context);
-      } else if (state.addNoteStatus == AddNoteStatus.failure) {}
+      } else if (state.addNoteStatus == AddNoteStatus.failure) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(PrimarySnackBar(title: AppMessages.error));
+      }
     }, builder: (context, state) {
       return Scaffold(
           backgroundColor: const Color(AppColors.background),

@@ -9,4 +9,7 @@ class AppLabels {
   static const String addNote = 'Add Note';
 }
 
-class AppMessages {}
+class AppMessages {
+  static const String error = 'You didn\'t add a note! Try again.';
+  static const String emptyContent = 'You didn\'t enter a note!';
+}
