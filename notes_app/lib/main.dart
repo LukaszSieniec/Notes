@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/bloc/add_note/add_note_bloc.dart';
 import 'package:notes_app/repositories/notes_repository.dart';
@@ -8,7 +9,10 @@ import 'bloc/notes/notes_bloc.dart';
 import 'bloc/notes/notes_event.dart';
 import 'database/notes_database.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(const MyApp());
 }
 
