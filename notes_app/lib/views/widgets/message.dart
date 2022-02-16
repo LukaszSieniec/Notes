@@ -11,12 +11,11 @@ class Message extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Center(
-            child: Text(message,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: messageSize))));
+    return Center(
+        child: Text(message,
+            style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: messageSize)));
   }
 }
